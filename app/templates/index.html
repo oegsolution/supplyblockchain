@@ -1,0 +1,31 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+		<div class="col-lg-8 mx-auto">    
+    <section id="create">
+	<h2>Registrar transação</h2>
+	<form action="/submit" id="textform" method="post">
+		<div class="form-group">
+		<label for="author">FORNECEDOR</label>
+		<input class="form-control" type="text" name="author" id ="author" placeholder="PETROBRAS DISTRIBUIDORA S.A.">
+	</div>
+	<div class="form-group">
+		<label for="content">CONTEÚDO</label>
+		<textarea class="form-control" name="content" id="content" rows="8" cols="50" placeholder='  {
+			"FORNECEDOR": " ",
+			"DISTRIBUIDORA": " ",
+			"PRODUTO": " ",
+			"VOLUME":  
+			"PRESSAO":  
+			"TEMPERATURA":  
+		  },'></textarea>
+		  <br>
+		<input type="submit" class="btn btn-primary" value="REGISTRAR">
+	</div>
+
+	</form>
+</section>
+</div>
+</div>
+{% endblock %}
