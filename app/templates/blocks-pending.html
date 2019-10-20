@@ -9,17 +9,17 @@
 		<table class="table table-striped">
 			<thead>
 			  <tr>
-				<th scope="col">#</th>
+				<th scope="col">FORNECEDOR</th>
 				<th scope="col">DATA</th>
-				<th scope="col">FORNECEDOR</th>				
+				<th scope="col">CONTEÚDO</th>												
 			  </tr>
 			</thead>
 			<tbody>
 					{% for post in posts %}
 			  <tr>
-				<th scope="row">{{post.content}}</th>
+				<th scope="row">{{post.author}}</th>
 				<td>{{readable_time(post.timestamp)}}</td>
-				<td>{{post.author}}</td>				
+				<td>{{post.content}}</td>				
 			  </tr>
 			  {% endfor %}
 
