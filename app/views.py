@@ -33,6 +33,22 @@ def fetch_posts():
         posts = sorted(content, key=lambda k: k['timestamp'],
                        reverse=True)
 
+def fetch_pending():
+    """
+    Fetch only pending transactions.
+    """
+    get_pending_address = "{}/pending_tx".format(CONNECTED_NODE_ADDRESS)
+    response = requests.get(get_pending_address)
+    if response.status_code == 200:        
+        pending = json.loads(response.content)
+        store_list = []
+        for item in pending:                       
+            store_list.append(item)
+
+        global posts_pending      
+        posts_pending = sorted(store_list, key=lambda k: k['timestamp'],
+                       reverse=True)
+
 @app.route('/')
 def index():
     fetch_posts()
@@ -65,11 +81,11 @@ def blocks():
 
 @app.route('/blocks-pending')
 def blocksPending():
-    fetch_posts()
+    fetch_pending()
     return render_template('blocks-pending.html',
                            title='O&G: Logistic '
                                  'Chain Tracker',
-                           posts=posts,
+                           posts=posts_pending,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
 
