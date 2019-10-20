@@ -11,17 +11,15 @@
 			  <tr>
 				<th scope="col">#</th>
 				<th scope="col">DATA</th>
-				<th scope="col">FORNECEDOR</th>
-				<th scope="col">CONTEÚDO</th>
+				<th scope="col">FORNECEDOR</th>				
 			  </tr>
 			</thead>
 			<tbody>
 					{% for post in posts %}
 			  <tr>
-				<th scope="row">{{post.hash}}</th>
+				<th scope="row">{{post.content}}</th>
 				<td>{{readable_time(post.timestamp)}}</td>
-				<td>{{post.author}}</td>
-				<td>{{post.content}}</td>
+				<td>{{post.author}}</td>				
 			  </tr>
 			  {% endfor %}
 
